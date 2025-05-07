@@ -28,7 +28,7 @@ export default function FAQs() {
           </AccordionItem>
           <AccordionItem value="question-4">
             <AccordionTrigger>How can I provide feedback or report an issue with Vriddhi?</AccordionTrigger>
-            <AccordionContent>Vriddhi is free and open source on <Link href="https://github.com/Deveesh-Shetty/vriddhi" className="underline">GitHub</Link>. We value your input! Your feedback helps us refine and enhance Vriddhi&apos;s capabilities.</AccordionContent>
+            <AccordionContent>Vriddhi is free and open source on <Link href="https://github.com/PraneeshShetty" className="underline">GitHub</Link>. We value your input! Your feedback helps us refine and enhance Vriddhi&apos;s capabilities.</AccordionContent>
           </AccordionItem>
         </Accordion>
       </div>

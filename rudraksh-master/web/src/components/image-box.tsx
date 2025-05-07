@@ -10,8 +10,10 @@ import Result from "@/components/result"
 import { ReloadIcon } from "@radix-ui/react-icons"
 
 interface FormData {
-  images: (string | ArrayBuffer | null)[]
-  similar_images: boolean
+  images: string[]
+  modifiers: string[]
+  language: string
+  details: string[]
 }
 
 export function ImageBox() {
@@ -21,7 +23,7 @@ export function ImageBox() {
   const { toast } = useToast()
 
   function onImageUpload(e: ChangeEvent<HTMLInputElement>) {
-    if (!e.target.files || !e.target.files[0]) return
+    if (!e.target.files?.[0]) return
     setImageFile(e.target.files[0] ?? null)
     toast({
       variant: "success",
@@ -31,14 +33,14 @@ export function ImageBox() {
     setImageURL(URL.createObjectURL(e.target.files[0]))
   }
 
-  const { isInitialLoading, error, data, refetch } = useQuery({
+  const { isInitialLoading, data, refetch } = useQuery({
     queryKey: ["plantData"],
     enabled: false,
     retry: 1, // Limit retries
     queryFn: async () => {
       try {
         const response = await fetch(
-          "https://plant.id/api/v3/health_assessment",
+          "https://plant.id/api/v3/new_identification",
           {
             method: "POST", 
             headers: {
